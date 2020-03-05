@@ -144,5 +144,8 @@ font-family: var(--font3);
 .collections {
 	padding-top: 30px;
 	font-family: var(--font3);
+<<<<<<< HEAD
 	line-height: 2.5;
+=======
+>>>>>>> 33ec9fedfc50184a44c214203888e37338168b14
 }
