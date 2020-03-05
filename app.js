@@ -41,15 +41,7 @@ const renderHtml = (restaurants) => {
 };
 const renderHtmlDiscover = (restaurants) => {
 	$('.results').empty();
-	$('.results').append(`
-	
-	
-	
-	
-	
-	
-	
-	`);
+	renderHtml(restaurants);
 };
 //search for restaurants by name
 const getDataByName = (restaurantSearch, citySearch) => {
