@@ -54,8 +54,6 @@ const getDataByName = (restaurantSearch, citySearch) => {
 	fetch(newUrl, option).then((res) => res.json()).then((resjson) => renderHtml(resjson.restaurants));
 };
 
-
-
 //get location by name and passes the city Id to discover
 const getLocation = (citySearch) => {
 	const params = {};
@@ -92,23 +90,23 @@ const discover = (cityId) => {
 };
 
 const render = (collections) => {
-	$(".collections").show()
-	for(const collection of collections) { console.log(collection)
-		$(".collections").append(`<div data-target=${collection.collection.collection_id}>
+	$('.collections').show();
+	for (const collection of collections) {
+		console.log(collection);
+		$('.collections').append(`<div data-target=${collection.collection.collection_id}>
 		${collection.collection.title}
-		</div>`)
+		</div>`);
 	}
-}
+};
 
 const collections = (collections) => {
 	const params = {};
 	let newUrl;
+	params.collection_id = collections;
 	const searchParams = $.param(params);
 	newUrl = `${urlSearch}?${searchParams}`;
-	fetch(newUrl, option).then((res) => res.json()).then((resjson) => (resjson.collections));
+	fetch(newUrl, option).then((res) => res.json()).then((resjson) => console.log(resjson));
 };
-
-
 
 //events
 const events = () => {
@@ -122,10 +120,10 @@ const events = () => {
 		$('main section').hide();
 		$('.search').show();
 	});
-	$('.collections').on("click", "div", function (e){
-		e.preventDefault();collections($(this)[0].dataset.target)
-		
-	})
+	$('.collections').on('click', 'div', function (e){
+		e.preventDefault();
+		collections($(this)[0].dataset.target);
+	});
 };
 
 function main (){
